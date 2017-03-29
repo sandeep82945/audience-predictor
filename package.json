@@ -24,7 +24,21 @@
     "bootstrap": "3.3.7"
   },
   "devDependencies": {
-    "electron": "^1.4.1"
+    "electron": "^1.4.1",
+    "grunt": "^1.0.1",
+    "grunt-babel": "",
+    "grunt-browserify": "",
+    "grunt-cli": "",
+    "grunt-complexity": "",
+    "grunt-contrib-clean": "",
+    "grunt-contrib-copy": "",
+    "grunt-contrib-jshint": "",
+    "grunt-contrib-nodeunit": "",
+    "grunt-contrib-uglify": "",
+    "grunt-contrib-watch": "",
+    "grunt-eslint": "",
+    "grunt-exec": "",
+    "grunt-sass": ""
   },
   "build": {
     "appId": "id",
