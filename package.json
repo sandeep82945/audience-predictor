@@ -1,0 +1,30 @@
+{
+  "name": "audience-predictor",
+  "version": "1.0.0",
+  "description": "It predicts facebook audience",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "build --dir",
+    "dist": "build"
+  },
+  "repository": "https://github.com/sandeep82945/audience-predictor",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "author": "GitHub",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^1.4.1"
+  },
+  "build": {
+    "appId": "id",
+    "mac": {
+      "category": "category"
+    }
+  }
+}
