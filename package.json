@@ -25,6 +25,8 @@
   },
   "devDependencies": {
     "electron": "^1.4.1",
+    "babel-preset-es2015": "",
+    "babelify": "",
     "grunt": "^1.0.1",
     "grunt-babel": "",
     "grunt-browserify": "",
@@ -38,7 +40,8 @@
     "grunt-contrib-watch": "",
     "grunt-eslint": "",
     "grunt-exec": "",
-    "grunt-sass": ""
+    "grunt-sass": "",
+    "load-grunt-tasks": ""
   },
   "build": {
     "appId": "id",
