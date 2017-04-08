@@ -9,7 +9,7 @@ class TextProcessor{
     let callback = (data) =>{
       alert(data)
     }
-    bridge.run('sum.py', [1,2,3,4], callback)
+    bridge.run('tokenize.py', this._original_text, callback)
   }
 }
 
