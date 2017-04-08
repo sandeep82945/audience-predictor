@@ -6,8 +6,6 @@ class PythonBridge{
 
   run(fileName, param, callback){
 
-    param = [1,2,3,4]
-
     let filePath = python_base + fileName
     let pythonProcess = spawn('python', [filePath])
     let dataString = ""

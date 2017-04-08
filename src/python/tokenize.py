@@ -16,7 +16,7 @@ def read_sentence():
 
 def main():
   #get our data as an array from read_in()
-  example_sentence = read_sentence()
+  input_sentence = read_sentence()
   #example_sentence="In the above code we first assign S the string Hello and then in the next line we set it to the concatenated output o     !!!!"
 
   example_sentence = example_sentence.translate(None, string.punctuation) #for removing punctuation
@@ -39,4 +39,4 @@ def main():
   print filtered_sentence
 
 if __name__ == '__main__':
-    main()
+  main()
