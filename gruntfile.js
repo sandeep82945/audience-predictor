@@ -39,7 +39,7 @@
       watch: {
         scripts: {
           files: ['src/**/*.js', 'test/**/*.js', 'src/**/*.scss', 'lib/**/*.js', 'samples/**/*.js'],
-          tasks: ["build_test"],
+          tasks: ["build"],
           options: {
             spawn: false,
             interrupt: true,
@@ -131,10 +131,10 @@
 
     grunt.loadTasks('tasks')
     grunt.registerTask("default", ["watch"])
-    grunt.registerTask("test", ["exec:electron-mocha"])
+    //grunt.registerTask("test", ["exec:electron-mocha"])
     grunt.registerTask("unsafe_build", ["browserify", "babel", "sass","clean", "uglify" ])
     grunt.registerTask("build", ["jshint", "eslint", "unsafe_build"])
-    grunt.registerTask("build_test", ["build", "test"])
+    //grunt.registerTask("build_test", ["build", "test"])
   };
 })();
 

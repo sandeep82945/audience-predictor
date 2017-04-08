@@ -1,30 +1,25 @@
+const python_base = "./src/python/"
 let spawn = global.require('child_process').spawn
 class PythonBridge{
   constructor(){
   }
 
-  run(file_name, param){
+  run(fileName, param, callback){
+
     param = [1,2,3,4]
-    file_name = "./src/python/sum.py"
-    let python_process = spawn('python', [file_name])
+
+    let filePath = python_base + fileName
+    let pythonProcess = spawn('python', [filePath])
     let dataString = ""
-    python_process.stdout.on('data', (data) => {
+    pythonProcess.stdout.on('data', (data) => {
       dataString += data.toString();
     })
-    python_process.stdout.on('end', function(){
-      console.log('Sum of numbers=', dataString);
+    pythonProcess.stdout.on('end', function(){
+      callback(dataString);
     });
-    python_process.stdin.write(JSON.stringify(param))
-    python_process.stdin.end()
-    return dataString
+    pythonProcess.stdin.write(JSON.stringify(param))
+    pythonProcess.stdin.end()
   }
 
 }
 module.exports = PythonBridge
-/*
-let spawn =  
-var spawn = require('child_process').spawn,
-    py    = spawn('python', ['compute_input.py']),
-    data = [1,2,3,4,5,6,7,8,9],
-    dataString = '';
-    */
