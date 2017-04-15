@@ -13,5 +13,6 @@ module.exports = () =>{
   let post_text = $('#post_text').val()
   let textPreProcessor = new PreProcessor(post_text)
   textPreProcessor.preprocess()
-  alert(textPreProcessor.tokens)
+  let token_text = textPreProcessor.tokens.join(',')
+  $('#tokenized_string').text(token_text)
 }
