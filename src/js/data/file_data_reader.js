@@ -10,8 +10,13 @@ class FileDataReader{
   }
   read(callback){
     this.callback = callback
-    this.parseFileName()
-    this.readFile()
+    try{  
+      this.parseFileName()
+      this.readFile()
+    }
+    catch(e){
+      this.callback(null)
+    }
   }
   parseFileName(){
     let tokens = this._filename.split('.')
@@ -22,10 +27,15 @@ class FileDataReader{
     
     let file_path = this.folder_path + this._filename 
     fs.readFile(file_path, (err, data) =>{
-      let jsonData = XMLParser.toJson(data);
-      let file_data = JSON.parse(jsonData)
-      this.posts = file_data.Blog.post
-      this.callback(this)
+      try{
+        let jsonData = XMLParser.toJson(data);
+        let file_data = JSON.parse(jsonData)
+        this.posts = file_data.Blog.post
+        this.callback(this)
+      }
+      catch(e){
+        this.callback(null)
+      }
     });
   }
 }

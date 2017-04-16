@@ -4,7 +4,7 @@ module.exports = {
       id: "15-20",
       minvalue :15,
       maxValue :20,
-      displayName: "-30"
+      displayName: "15-20"
     },
     {
       id: "20-30",
