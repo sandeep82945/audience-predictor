@@ -17,11 +17,12 @@ class BlogsDataReader{
   read(){
     this.files_count = 0;
     this.readfileNames()
-    this.readFiles()
+    //this.readFiles()
   }
   readfileNames(){
     fs.readdir(this.folder_path, (err, files) => {
       this._files = files
+      this.readFiles()
     });
   }
 
