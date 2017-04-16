@@ -6,17 +6,19 @@
 
     <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css">
      <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap-theme.css">
+     <link rel="stylesheet" type="text/css" href="css/audience_predictor.css">
   </head>
   <body>
     <h1>Audience Predictor</h1>
     <!-- All of the Node.js APIs are available in this renderer process. -->
     <p>We shall be predicting audience in this project</p>
     <p>TODO: create a UI for entering facebook post</p>
-    <textarea name="Text1" cols="40" rows="5" id ="post_text"></textarea>
-     <button type="button" class="btn btn-lg btn-primary" id ="process_post_text">Submit</button>
+    <textarea name="Text1" cols="40" rows="5" id ="post_text" placeholder="Ether the Ad Text"></textarea>
+     <button type="button" class="btn btn-lg btn-primary" id ="process_post_text">Tokenize </button>
      <div>
       <p id="tokenized_string"></p>
      </div> 
+     <button type="button" class="btn btn-lg btn-primary" id ="predict_age">Predict Age</button>
   </body>
   <script>
     // You can also require other files to run in this process

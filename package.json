@@ -26,7 +26,8 @@
     "node-svm": "",
     "natural":"",
     "wordnet-db":"",
-    "lapack":""
+    "lapack":"",
+    "ml-knn" :"" 
   },
   "devDependencies": {
     "electron": "^1.4.1",

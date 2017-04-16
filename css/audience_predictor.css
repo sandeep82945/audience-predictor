@@ -1,0 +1,10 @@
+button {
+	vertical-align: bottom!important;
+}
+body{
+	margin: 4rem;
+}
+
+.token-label{
+	margin: 0.2rem;
+}
