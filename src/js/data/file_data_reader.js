@@ -8,7 +8,8 @@ class FileDataReader{
     this.text_data = []
     this.folder_path = folder_path
   }
-  read(){
+  read(callback){
+    this.callback = callback
     this.parseFileName()
     this.readFile()
   }
@@ -17,8 +18,8 @@ class FileDataReader{
     this.gender = tokens[1]
     this.age = parseInt(tokens[2])
   }
-  readFile(callback){
-    this.callback = callback
+  readFile(){
+    
     let file_path = this.folder_path + this._filename 
     fs.readFile(file_path, (err, data) =>{
       let jsonData = XMLParser.toJson(data);

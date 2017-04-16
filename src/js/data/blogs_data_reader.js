@@ -45,8 +45,10 @@ class BlogsDataReader{
     return ageGroup
   }
   onFileRead(reader){
-    let ageGroup = this.findAgeGroup(reader.blogs_data.age)
-    console.log(ageGroup)
+    if(reader && reader.age){
+      let ageGroup = this.findAgeGroup(reader.age)
+      console.log(ageGroup)
+    }
   }
 
 }

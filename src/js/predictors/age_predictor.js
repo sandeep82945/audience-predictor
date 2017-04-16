@@ -1,4 +1,4 @@
-let  KNN = require('ml-knn')
+let  KNN = global.require('ml-knn')
 
 class AgePredictor{
   constructor(){
