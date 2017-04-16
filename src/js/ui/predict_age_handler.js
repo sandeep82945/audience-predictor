@@ -1,6 +1,6 @@
 //let $ = global.$
-let AgePredictor = require('../predictors/age_predictor')
-
+/////let AgePredictor = require('../predictors/age_predictor')
+let BlogsDataReader = require('../data/blogs_data_reader')
 /*let TextProcessor = require('../text_processor')
 
 module.exports = () =>{
@@ -9,9 +9,15 @@ module.exports = () =>{
   text_processor.preprocess()
 }
 */
+/*
 module.exports = () =>{
   let age_predictor = new AgePredictor()
 
   alert(age_predictor.predict())
   //global.tokens = textPreProcessor.tokens
+}
+*/
+module.exports = () =>{
+  let reader = new BlogsDataReader()
+  reader.read()
 }

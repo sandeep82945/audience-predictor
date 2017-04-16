@@ -1,5 +1,5 @@
-let Natural = require('natural')
-const stopWord = require('stopword')
+let Natural = global.require('natural')
+const stopWord = global.require('stopword')
   
 class PreProcessor{
   constructor(text){
