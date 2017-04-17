@@ -16,6 +16,7 @@ module.exports = {
       let tdtext = ui_utils.repeat("<p>", data, "</p>")
       html +=  preTDtext + tdtext + '</div></td>'
     })
+    html = '<table> <theader><tr><th>Age Group</th></tr></tthead><tbody>' + html +'</tbody></table>'
     $('#read_files_data_display').html(html)
   }
 } 
