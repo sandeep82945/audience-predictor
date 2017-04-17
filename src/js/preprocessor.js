@@ -1,7 +1,7 @@
 let Natural = global.require('natural')
 const stopWord = global.require('stopword')
 let Lemmer = global.require('lemmer');
-let $= global.$
+let $ = global.$
   
 class PreProcessor{
   constructor(text){

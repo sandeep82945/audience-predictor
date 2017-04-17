@@ -3,6 +3,7 @@ const ui_utils = require('./utils')
 let DataReader = require('../data/blogs_data_reader')
 let dataReader = new DataReader('./data/samples/')
 dataReader.readfileNames()
+global.sample_data_reader = dataReader
 
 module.exports = {
   listFiles(){
