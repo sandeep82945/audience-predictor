@@ -1,5 +1,6 @@
 let $ = global.$
 let PreProcessor = require('../preprocessor')
+const ui_utils = require('./utils')
 
 /*let TextProcessor = require('../text_processor')
 
@@ -14,10 +15,7 @@ module.exports = () =>{
   let textPreProcessor = new PreProcessor(post_text)
   textPreProcessor.preprocess()
   let tokens = textPreProcessor.tokens
-  let html = ""
-  $.each(tokens, (index, token) =>{
-  	html += "<span class=\"label label-warning token-label\">" + token + "</span>"
-  })
+  let html = ui_utils.repeat("<span class=\"label label-warning token-label\">", tokens, "</span>")
   $('#tokenized_string').html(html)
   global.tokens = textPreProcessor.tokens
 }

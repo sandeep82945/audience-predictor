@@ -28,7 +28,9 @@
     "wordnet-db": "",
     "lapack": "",
     "ml-knn": "",
-    "xml2json": ""
+    "xml2json": "",
+    "lemmer": "",
+    "wndb-with-exceptions":""
   },
   "devDependencies": {
     "babel-preset-es2015": "",

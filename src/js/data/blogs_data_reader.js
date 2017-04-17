@@ -10,12 +10,14 @@ let FileDataReader = require('./file_data_reader')
 let $ = global.$
 
 class BlogsDataReader{
-  constructor(){
-    this.folder_path = blogs_path
+  constructor(path, callback){
+    this.folder_path = path || blogs_path
     this.blogs_data = []
+    this.files_count = 0;
+    this._callback = callback
   }
   read(){
-    this.files_count = 0;
+
     this.readfileNames()
     //this.readFiles()
   }
@@ -27,6 +29,7 @@ class BlogsDataReader{
   }
 
   readFiles(){
+    this.files_count = 0;
     $.each(this._files, (index, file) =>{
       this.readFileData(file)
     })
@@ -66,6 +69,8 @@ class BlogsDataReader{
   }
   onComplete(){
     console.log(this.blogs_data)
+    if(this.callback)
+      this.callback(this.blogs_data)
   }
 
 }
