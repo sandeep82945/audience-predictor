@@ -13,6 +13,11 @@ let handlers = {
   {
   	selector:'#list_data_files',
   	callback: dataReaderHandlers.listFiles
-  }]
+  },
+  {
+  	selector:'#read_file_data',
+  	callback: dataReaderHandlers.readFiles
+  }
+  ]
 }
 module.exports = handlers

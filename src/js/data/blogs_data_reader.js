@@ -12,7 +12,7 @@ let $ = global.$
 class BlogsDataReader{
   constructor(path, callback){
     this.folder_path = path || blogs_path
-    this.blogs_data = []
+    this.blogs_data = {}
     this.files_count = 0;
     this._callback = callback
   }

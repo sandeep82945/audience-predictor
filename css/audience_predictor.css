@@ -8,3 +8,14 @@ body{
 .token-label{
 	margin: 0.2rem;
 }
+#data_files_display{
+	height:25rem;
+	overflow-y: scroll;
+}
+#read_files_data_display{
+	
+}
+.post_text{
+		max-height: 25rem;
+		overflow-y:scroll;
+	}
