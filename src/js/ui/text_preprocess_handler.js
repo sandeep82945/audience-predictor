@@ -29,8 +29,9 @@ class PreprocessHandler{
     showTokens('#demo_data_stop_words')
   }
   lemmatize(){
-    global.sampletextProcessor.lemmatize()
-    showTokens('#demo_data_lemmatize')
+    global.sampletextProcessor.lemmatize(() =>{
+      showTokens('#demo_data_lemmatize')
+    })
   }
 }   
 

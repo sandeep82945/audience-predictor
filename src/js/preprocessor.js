@@ -29,9 +29,11 @@ class PreProcessor{
     })
     this.tokens = stemmed_tokens
   }
-  lemmatize(){
+  lemmatize(callback){
     Lemmer.lemmatize(this.tokens, (err, words) =>{
       this.tokens = words
+      if(callback)
+        callback(this.tokens)
     });
   }
 }
