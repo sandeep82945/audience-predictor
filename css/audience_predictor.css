@@ -24,3 +24,14 @@ body{
   border-width: 1px;
   border-style: solid;
 }
+
+
+td, th {
+  border: 1px;
+  border-style: solid;
+  padding: 1rem;
+}
+
+th {
+    background: #10aff3;
+}
