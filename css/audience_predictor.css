@@ -18,4 +18,9 @@ body{
 .post_text{
 		max-height: 25rem;
 		overflow-y:scroll;
-	}
+}
+#data_files_display, #read_files_data_display{
+	border: black;
+  border-width: 1px;
+  border-style: solid;
+}
