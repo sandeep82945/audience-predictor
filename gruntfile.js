@@ -39,7 +39,7 @@
       watch: {
         scripts: {
           files: ['src/**/*.js', 'test/**/*.js', 'src/**/*.scss', 'lib/**/*.js', 'samples/**/*.js'],
-          tasks: ["build"],
+          tasks: ["unsafe_build"],
           options: {
             spawn: false,
             interrupt: true,
