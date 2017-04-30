@@ -12,12 +12,13 @@ text = read_sentence()
 
 tokenized_text = word_tokenize(text)
 classified_text = st.tag(tokenized_text)
+print classified_text
 
 result=[]
 
 for a,b in classified_text:
 	if(b=='LOCATION'):
-		result.append(a[1:])
+		result.append(a[0:])
 	
 print('\n')
 print(result)
