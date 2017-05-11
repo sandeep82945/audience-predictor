@@ -3,6 +3,7 @@ from nltk.tokenize import word_tokenize
 from nltk.tokenize import RegexpTokenizer
 import string
 from stop_words import get_stop_words
+from read_data import read_sentence
 
 example_sentence=raw_input()
 #example_sentence="In the above code we first assign S the string Hello and then in the next line we set it to the concatenated output o cats    !!!!"
