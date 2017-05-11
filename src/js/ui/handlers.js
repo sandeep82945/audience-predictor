@@ -1,15 +1,17 @@
 let processPostHandler = require('./process_post_handler')
-let predictAgeHandler = require('./predict_age_handler')
+//let predictAgeHandler = require('./predict_age_handler')
 let dataReaderHandlers = require('./data_reader_handlers')
 let processTextHandler = require('./text_preprocess_handler')
+let predictAudienceHandler = require('./predict_audience_handler')
+
 let handlers = {
   click:[{
     selector:'#process_post_text',
     callback: processPostHandler
   },
   {
-    selector:'#predict_age',
-    callback: predictAgeHandler
+    selector:'#predict_audeience',
+    callback: predictAudienceHandler
   },
   {
   	selector:'#list_data_files',

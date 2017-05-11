@@ -16,7 +16,8 @@ class AgePredictor{
                [2, 2, 2]]
  
     let ans = this.knn.predict(dataset)
-    alert(ans)
+    console.log(ans)
+    //alert(ans)
   }
 
 }

@@ -12,6 +12,10 @@ class PythonBridge{
     pythonProcess.stdout.on('data', (data) => {
       dataString += data.toString();
     })
+    pythonProcess.stderr.on('data', (data) => {
+      let errorString = data.toString();
+      console.error(errorString)
+    })
     pythonProcess.stdout.on('end', function(){
       callback(dataString);
     });

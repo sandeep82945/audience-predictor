@@ -1,10 +1,12 @@
 #Read data from stdin
-import sys
+import sys, json
 
 def read_sentence():
-  line = sys.stdin.readline()
+  lines = sys.stdin.readlines()
+
   #Since our input would only be having one line, parse our JSON data from that
-  return line
+  return json.loads(lines[0])
+
 
 
 
