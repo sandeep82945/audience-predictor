@@ -9,8 +9,10 @@ def read_sentence():
 
 
 
-
 def read_sentence1():
   line = sys.stdin.readline()
   #Since our input would only be having one line, parse our JSON data from that
   return line
+
+def convert(obj):
+  return json.dumps(obj)

@@ -1,4 +1,5 @@
 let $ = global.$
+const ui_utils = require('./utils')
 //let AgePredictor = require('../predictors/age_predictor')
 //let BlogsDataReader = require('../data/blogs_data_reader')
 //let TextProcessor = require('../text_processor')
@@ -10,8 +11,24 @@ let predictAge = (post_text)=>{
 }
 */
 
+let showCities = (places) =>{
+  let html = ui_utils.repeat("<span class=\"label label-warning token-label\">", places.cities, "</span>")
+  $('#demo_cities').html(html)
+}
+let showCountries = (places) =>{
+  let html = ui_utils.repeat("<span class=\"label label-warning token-label\">", places.countries, "</span>")
+  $('#demo_countries').html(html)
+}
+
 let onPredictPlace = (text) => {
-  alert(text)
+  try{
+    let places = JSON.parse(text)
+    showCities(places)
+    showCountries(places)
+  }
+  catch(err){
+    console.log(err)
+  }
 }
 
 let predictPlace = (post_text)=>{
