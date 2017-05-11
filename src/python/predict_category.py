@@ -58,7 +58,7 @@ simple_test_dtm=vect.transform(simple_test)
 y_pred_class = knn.predict(simple_test_dtm)
 
 
-print convert(categories[y_pred_class[0]])
+print convert([categories[y_pred_class[0]]])
 
 
 
