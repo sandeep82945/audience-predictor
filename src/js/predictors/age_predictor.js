@@ -24,8 +24,8 @@ class AgePredictor{
 
   predict(post_text){
     let pythonBridge = new PythonBridge()
-    pythonBridge.run('predict_category.py', post_text, this.onPredictAge.bind(this))
-    
+    pythonBridge.run('predict_age.py', post_text, this.onPredictAge.bind(this))
+
     //pythonBridge.run('predict_age.py', post_text, this.onPredictAge.bind(this))
   }
 }
