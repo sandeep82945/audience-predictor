@@ -5,10 +5,15 @@ let dataReader = new DataReader('./data/samples/')
 dataReader.readfileNames()
 global.sample_data_reader = dataReader
 
+let CSVConverter = require('../data/tsv_converter')
+
 module.exports = {
   listFiles(){
     let html = ui_utils.repeat("<p>", dataReader._files, "</p>")
     $('#data_files_display').html(html)
+
+    let converter = new CSVConverter()
+    converter.convertTsv(dataReader.blogs_data, './data/blogs_data.tsv')
   },
   readFiles(){
     let html = ""

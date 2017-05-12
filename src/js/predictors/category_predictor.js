@@ -22,7 +22,7 @@ class CategoryPredictor{
     }
   }
 
-  predictCategory(post_text){
+  predict(post_text){
     let pythonBridge = new PythonBridge()
     pythonBridge.run('predict_category.py', post_text, this.onPredictcategory.bind(this))
   }

@@ -1,24 +1,33 @@
-let  KNN = global.require('ml-knn')
+let $ = global.$
+const ui_utils = require('../ui/utils')
+let PythonBridge = require('../python_bridge')
 
 class AgePredictor{
+  
   constructor(){
-    this.knn = new KNN()
   }
-  train(){
-    var trainingSet = [[0, 0, 0], [0, 1, 1], [1, 1, 0], [2, 2, 2], [1, 2, 2], [2, 1, 2]];
-    var predictions = [0, 0, 0, 1, 1, 1];
- 
-    this.knn.train(trainingSet, predictions);
-  }
-  predict(){
-    this.train()
-    let dataset = [[0, 0, 0],
-               [2, 2, 2]]
- 
-    let ans = this.knn.predict(dataset)
-    console.log(ans)
-    //alert(ans)
+  
+  showAge(ageGroups){
+    let html = ui_utils.repeat("<span class=\"label label-warning token-label\">", ageGroups, "</span>")
+    $('#demo_age_groups').html(html)
   }
 
+  onPredictAge(data){
+    try{
+      let ageGroups = JSON.parse(data)
+      this.showAge(ageGroups)
+    }
+    catch(err){
+      console.log(err)
+    }
+  }
+
+  predict(post_text){
+    let pythonBridge = new PythonBridge()
+    pythonBridge.run('predict_category.py', post_text, this.onPredictAge.bind(this))
+    
+    //pythonBridge.run('predict_age.py', post_text, this.onPredictAge.bind(this))
+  }
 }
+
 module.exports = AgePredictor

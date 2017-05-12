@@ -30,7 +30,8 @@
     "ml-knn": "",
     "xml2json": "",
     "lemmer": "",
-    "wndb-with-exceptions":""
+    "wndb-with-exceptions":"",
+    "tsv":""  
   },
   "devDependencies": {
     "babel-preset-es2015": "",

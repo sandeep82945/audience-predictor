@@ -28,7 +28,7 @@ class PlacePredictor{
     }
   }
 
-  predictPlace(post_text){
+  predict(post_text){
     let pythonBridge = new PythonBridge()
     pythonBridge.run('predict_place.py', post_text, this.onPredictPlace.bind(this))
   }
