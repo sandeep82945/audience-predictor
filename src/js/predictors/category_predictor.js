@@ -24,7 +24,7 @@ class CategoryPredictor{
 
   predict(post_text){
     let pythonBridge = new PythonBridge()
-    pythonBridge.run('predict_category.py', post_text, this.onPredictcategory.bind(this))
+    pythonBridge.run('naive_category.py', post_text, this.onPredictcategory.bind(this))
   }
 }
 

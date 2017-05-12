@@ -4,7 +4,7 @@ from read_data import convert
 
 #for reading file
 import pandas as pd
-sms = pd.read_table('pk.tsv', header=None, names=['label', 'message'])
+sms = pd.read_table('./data/pk.tsv', header=None, names=['label', 'message'])
 categories = {'BEAUTY':3, "ELECTRONICS":2, 'not Identified':0}
 
 # convert label to a numerical variable
@@ -28,7 +28,7 @@ nb=MultinomialNB()
 
 nb.fit(X_train_dtm,y_train)
 
-text = read_sentence1()
+text = read_sentence()
 
 simple_test=[text]
 
