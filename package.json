@@ -31,7 +31,8 @@
     "xml2json": "",
     "lemmer": "",
     "wndb-with-exceptions":"",
-    "tsv":""  
+    "tsv":"" ,
+    "fb": "^2.0.0" 
   },
   "devDependencies": {
     "babel-preset-es2015": "",

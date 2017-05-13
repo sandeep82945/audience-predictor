@@ -3,6 +3,7 @@ let fs = global.require('fs')
 let $ = global.$
 const consts = require('../consts')
 const ageGroups = consts.age_groups
+//const TextProcessor = require('../preprocessor')
 
 class CSVConverter
 {
@@ -12,11 +13,17 @@ class CSVConverter
   convertTexts(group){
     let texts = this.data[group.id]
     $.each(texts, (index, text) => {
+      text = this.preprocess(text)
       this.tsv_data.push({age_group: group.id, text: text})  
     });
 
   }
+/*
+  preprocess(text){
+    let textProcessor = new TextProcessor(text)
 
+  }
+*/
   convertTsv(data, filename){
     this.tsv_data = []
     this.data = data

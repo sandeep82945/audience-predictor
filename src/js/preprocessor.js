@@ -4,12 +4,14 @@ let Lemmer = global.require('lemmer');
 let $ = global.$
   
 class PreProcessor{
-  constructor(text){
+  constructor(text, callback){
     this._original_text = text
+    this.callback = callback
   }
   preprocess(){
     this.tokenize()
     this.removeStopWords()
+    this.lemmatize()
   }
   tokenize(){
     let tokenizer = new Natural.WordTokenizer();
@@ -30,10 +32,11 @@ class PreProcessor{
     this.tokens = stemmed_tokens
   }
   lemmatize(callback){
+    this.callback = callback || this.callback
     Lemmer.lemmatize(this.tokens, (err, words) =>{
       this.tokens = words
-      if(callback)
-        callback(this.tokens)
+      if(this.callback)
+        this.callback(this.tokens)
     });
   }
 }

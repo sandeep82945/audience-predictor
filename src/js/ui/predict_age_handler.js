@@ -17,6 +17,10 @@ module.exports = () =>{
   //global.tokens = textPreProcessor.tokens
 }
 */
+/*
+let callback = (data) =>{
+
+}*/
 module.exports = () =>{
   let reader = new BlogsDataReader()
   reader.read()
