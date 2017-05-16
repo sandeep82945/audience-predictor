@@ -2,11 +2,10 @@ let FB = require('fb');
 let $ = global.$
 
 FB.options({version: 'v2.9'})
-FB.setAccessToken('{accees-token}')
 
 class FbApi{
-  constructor(){
-
+  constructor(access_token){
+    FB.setAccessToken(access_token)
   }
   
   getFBAudiences(callback){

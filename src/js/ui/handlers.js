@@ -4,6 +4,8 @@ let dataReaderHandlers = require('./data_reader_handlers')
 let processTextHandler = require('./text_preprocess_handler')
 let predictAudienceHandler = require('./predict_audience_handler')
 let facebookLoginHandler = require('./facebook_login_handler')
+let getAudienceHandler = require('./get_audience_handler')
+
 
 
 let handlers = {
@@ -42,6 +44,10 @@ let handlers = {
   {
     selector:'#fb_login',
     callback: facebookLoginHandler
+  },
+  {
+    selector:'#fb_audiences',
+    callback: getAudienceHandler
   }
   
   ]

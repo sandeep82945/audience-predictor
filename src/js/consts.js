@@ -24,5 +24,11 @@ module.exports = {
       maxValue :100,
       displayName: "40-100"
     }
-  ]
+  ],
+  facebook: {
+    application_id:'615566271976367',
+    client_secret:'508f0e61a63298135974ea17d3aa71e4',
+    redirect_url: 'http://localhost:8080/'
+  }  
+
 }
