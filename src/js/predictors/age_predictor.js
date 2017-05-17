@@ -18,7 +18,7 @@ class AgePredictor{
       this.showAge(ageGroups)
     }
     catch(err){
-      console.log(err)
+      console.error(err)
     }
   }
 
@@ -26,7 +26,6 @@ class AgePredictor{
     let pythonBridge = new PythonBridge()
     pythonBridge.run('predict_age.py', post_text, this.onPredictAge.bind(this))
 
-    //pythonBridge.run('predict_age.py', post_text, this.onPredictAge.bind(this))
   }
 }
 
