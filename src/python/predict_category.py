@@ -7,8 +7,8 @@ from read_data import convert
 #for reading file
 import pandas as pd
 sms = pd.read_table('data/pk.tsv', header=None, names=['label', 'message'])
-labels = {'BEAUTY': 2, 'ELECTRONICS':1, 'non-elect':0}
-categories = {2:'Beauty', 1:"Electronics", 0:'not Identified'}
+labels = {'CARS': 5, 'PHOTOGRAPHY': 4, 'CEREALS': 3, 'BEAUTY': 2, 'ELECTRONICS':1, 'non-elect':0}
+categories = {5: 'Cars', 4:'Photography', 3:'Cereals', 2:'Beauty', 1:"Electronics", 0:'not Identified'}
 
 # examine the first 10 rows
 #print(sms.head(10))
