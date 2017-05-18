@@ -38,11 +38,6 @@ vect.fit(X_train)
 X_train_dtm = vect.transform(X_train)
 
 
-X_test=["xdxdwc"]
-
-# transform testing data (using fitted vocabulary) into a document-term matrix
-X_test_dtm = vect.transform(X_test)
-
 
 #lean using knn
 knn.fit(X_train_dtm,y_train)
@@ -51,6 +46,8 @@ knn.fit(X_train_dtm,y_train)
 #vectorizing input
 text = read_sentence()
 simple_test=[text]
+
+# transform testing data (using fitted vocabulary) into a document-term matrix
 simple_test_dtm=vect.transform(simple_test)
 
 
@@ -59,6 +56,8 @@ y_pred_class = knn.predict(simple_test_dtm)
 
 
 print convert([categories[y_pred_class[0]]])
+
+//Json-javascript 
 
 
 
