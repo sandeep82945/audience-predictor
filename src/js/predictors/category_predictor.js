@@ -7,6 +7,10 @@ class CategoryPredictor{
   constructor(){
   }
   
+  addCategories(categories){
+    global.predictedAudience.interests = categories
+  }
+
   showCategories(categories){
     let html = ui_utils.repeat("<span class=\"label label-warning token-label\">", categories, "</span>")
     $('#demo_categories').html(html)
@@ -15,6 +19,7 @@ class CategoryPredictor{
   onPredictcategory(data){
     try{
       let categories = JSON.parse(data)
+      this.addCategories(categories)
       this.showCategories(categories)
     }
     catch(err){

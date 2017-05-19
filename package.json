@@ -32,7 +32,8 @@
     "lemmer": "",
     "wndb-with-exceptions":"",
     "tsv":"" ,
-    "fb": "^2.0.0" 
+    "fb": "^2.0.0" ,
+    "countrynames" :"^0.1.1"
   },
   "devDependencies": {
     "babel-preset-es2015": "",
