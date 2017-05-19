@@ -11,10 +11,14 @@ class AgePredictor{
     let html = ui_utils.repeat("<span class=\"label label-warning token-label\">", ageGroups, "</span>")
     $('#demo_age_groups').html(html)
   }
+  createAgeGroups(ageGroups){
+    global.predictedAudience.ageGroups = ageGroups
+  }
 
   onPredictAge(data){
     try{
       let ageGroups = JSON.parse(data)
+      this.createAgeGroups(ageGroups)
       this.showAge(ageGroups)
     }
     catch(err){

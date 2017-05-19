@@ -13,10 +13,16 @@ class PlacePredictor{
   }
 
   showCountries(places){
-    let html = ui_utils.repeat("<span class=\"label label-warning token-label\">", places.countries, "</span>")
+    this.addCountries(places.countries)
+    let html = ui_utils.repeat("<span class=\"label label-warning token-label\">", places.countries, "</span>", this.getCountryName)
     $('#demo_countries').html(html)
   }
-
+  getCountryName(country){
+    return country.name
+  }
+  addCountries(countries){
+    global.predictedAudience.countries = countries
+  }
   onPredictPlace(data){
     try{
       let places = JSON.parse(data)
