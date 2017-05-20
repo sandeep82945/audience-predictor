@@ -32,7 +32,9 @@ class Utils {
     html += `Age Group: <span class="label label-warning token-label">
     ${age_html}</span>`   
 
-    let interests_html = this.repeat("<span class=\"label label-warning token-label\">", audience.interests, "</span>")
+    let interests_html = this.repeat("<span class=\"label label-warning token-label\">", audience.interests, "</span>", (interest) =>{
+      return interest.name
+    })
     html += `<p>Interests: <span class="label label-warning token-label">${interests_html}</span></p>`
  
     return html
