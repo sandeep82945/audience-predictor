@@ -25,6 +25,24 @@ module.exports = {
       displayName: "40-100"
     }
   ],
+  interests:[
+    {
+      name:"Beauty",
+      id:"Beauty"
+    },
+    {
+      name:"Photography",
+      id:"Photography"
+    },
+    {
+      name:"Photography",
+      id:"Photography"
+    },
+    {
+      name:"Cosmetics",
+      id:"Cosmetics"
+    }
+  ],
   facebook: {
     application_id:'615566271976367',
     client_secret:'508f0e61a63298135974ea17d3aa71e4',

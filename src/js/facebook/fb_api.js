@@ -31,22 +31,22 @@ class FbApi{
     if(res && res.saved_audiences && res.saved_audiences.data){
       let audiences = res.saved_audiences.data
       $.each(audiences, (index, audience) =>{     
-        let resultFn = this.getReultFn(this.onAudienceDetails.bind(this))
+        let resultFn = this.getReultFn(this.onAudienceDetails.bind(this), audience.name)
         FB.api(`${audience.id}?fields=targeting`, resultFn)
       }) 
     }
   }
-  onAudienceDetails(res){
-    this.callback(res.targeting)
+  onAudienceDetails(res, audience_name){
+    this.callback(res.targeting, audience_name)
   }
 
-  getReultFn(callback){
+  getReultFn(callback, audience_name){
     return (res) => {
       if(!res || res.error){
         console.error(!res ? 'error occurred' : res.error)
         return
       }
-      callback(res)
+      callback(res, audience_name)
     }
   }
 }

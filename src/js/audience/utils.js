@@ -2,26 +2,26 @@ let $ = global.$
 
 class Utils{
   searchArrays(array1, array2, compareFn = null){
-    let matchFound = false
+    let matchFound = null
     $.each(array1, (item1) => {
-      matchFound = matchFound || this._findinArray(item1, array2, compareFn)
+      matchFound = matchFound || this.findinArray(item1, array2, compareFn)
     })
     return matchFound
   }
 
-  _findinArray(item1, array2, compareFn){
-    let matchFound = false 
+  findinArray(item1, array2, compareFn){
+    let matchFound = null 
     compareFn = compareFn || this.matchString
-    $.each(array2, (item2) => {
+    $.each(array2, (index, item2) => {
       if(compareFn(item1, item2)){
-        matchFound = true 
+        matchFound = item2 
       }
     })
     return matchFound
   }
 
   matchString(item1, item2){
-    return item1.toString().toLower() === item2.toString().toLower()
+    return item1.toString().toLowerCase() === item2.toString().toLowerCase()
   }
 
   matchCountryFn(country1, country2){
