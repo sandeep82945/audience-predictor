@@ -37,6 +37,13 @@ class Utils {
     })
     html += `<p>Interests: <span class="label label-warning token-label">${interests_html}</span></p>`
  
+
+    let gender_html = this.repeat("<span class=\"label label-warning token-label\">", audience.genders, "</span>", (gender) =>{
+      return gender.name
+    })
+    html += `<p>Gender: <span class="label label-warning token-label">${gender_html}</span></p>`
+ 
+    
     return html
   }
 
