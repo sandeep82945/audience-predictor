@@ -10,7 +10,9 @@ class AudienceMatcher{
     let matched_audience = []
     $.each(this.audiences, (index, audience1) => {
       let matchScore = this.matchScore(audience1, audience2)
-      matched_audience.push({audience: audience1, score: matchScore})
+      if(matchScore > 0){
+        matched_audience.push({audience: audience1, score: matchScore})
+      }
     })
     return matched_audience
   }

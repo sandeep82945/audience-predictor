@@ -1,10 +1,11 @@
 //let $ = global.$
-//const ui_utils = require('./utils')
+const ui_utils = require('./utils')
 let AudienceMatcher = require('../audience/audience_matcher')
 
 
   
 let display = (audiences) =>{
+  ui_utils.displayAudiences('#matching_audiences', audiences)
   console.log(audiences)
 }
 

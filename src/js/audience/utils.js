@@ -3,7 +3,7 @@ let $ = global.$
 class Utils{
   searchArrays(array1, array2, compareFn = null){
     let matchFound = null
-    $.each(array1, (item1) => {
+    $.each(array1, (index, item1) => {
       matchFound = matchFound || this.findinArray(item1, array2, compareFn)
     })
     return matchFound

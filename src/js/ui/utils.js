@@ -41,6 +41,9 @@ class Utils {
   }
 
   audienceHtml(audience){
+    if(audience.audience){
+      audience = audience.audience
+    }
     let param_html = this.audienceParamHtml(audience)
     return `<td>${audience.name}</td><td>${param_html}</td>`
   }
