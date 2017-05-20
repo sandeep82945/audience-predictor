@@ -4,15 +4,20 @@ let PythonBridge = require('../python_bridge')
 
 class AgePredictor{
   
-  constructor(){
+  constructor(category){
+    this.category = category
   }
   
   showAge(ageGroups){
-    let html = ui_utils.repeat("<span class=\"label label-warning token-label\">", ageGroups, "</span>")
+    let html = ui_utils.repeat("<span class=\"label label-warning token-label\">", ageGroups, "</span>", ui_utils.displayAgeGroup)
     $('#demo_age_groups').html(html)
   }
   createAgeGroups(ageGroups){
     global.predictedAudience.ageGroups = ageGroups
+    if(ageGroups.length > 0){
+      global.predictedAudience.age_min = ageGroups[0].age_min
+      global.predictedAudience.age_max = ageGroups[0].age_max
+    }
   }
 
   onPredictAge(data){
@@ -26,9 +31,9 @@ class AgePredictor{
     }
   }
 
-  predict(post_text){
+  predict(){
     let pythonBridge = new PythonBridge()
-    pythonBridge.run('predict_age.py', post_text, this.onPredictAge.bind(this))
+    pythonBridge.run('predict_age.py', this.category, this.onPredictAge.bind(this))
 
   }
 }

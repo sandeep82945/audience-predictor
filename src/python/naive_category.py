@@ -5,9 +5,13 @@ from read_data import convert
 #for reading file
 import pandas as pd
 sms = pd.read_table('data/pk.tsv', header=None, names=['label', 'message'])
-labels = {'CARS': 5, 'PHOTOGRAPHY': 4, 'CEREALS': 3, 'BEAUTY': 2, 'ELECTRONICS':1, 'non-elect':0}
-categories = {5: 'Cars', 4:'Photography', 3:'Cereals', 2:'Beauty', 1:"Electronics", 0:'not Identified'}
 
+from categories import tsv_labels
+labels = tsv_labels['categories']["ids"]
+categories = tsv_labels['categories']["names"]
+
+#print dict(labels)
+#print dict(categories)
 # convert label to a numerical variable
 sms['label_num'] = sms.label.map(labels)
 

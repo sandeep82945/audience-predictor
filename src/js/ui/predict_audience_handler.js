@@ -3,7 +3,7 @@ let PlacePredictor = require('../predictors/place_predictor')
 let CategoryPredictor = require('../predictors/category_predictor')
 let Audience = require('../audience/audience')
 
-//let AgePredictor = require('../predictors/age_predictor')
+
 //let AgePredictor = require('../predictors/age_predictor')
 //let BlogsDataReader = require('../data/blogs_data_reader')
 //let TextProcessor = require('../text_processor')
@@ -36,7 +36,7 @@ module.exports = () =>{
   let category_predictor = new CategoryPredictor()
   category_predictor.predict(post_text)
 
-  //let age_predictor = new AgePredictor()
+  // let age_predictor = new AgePredictor()
   // age_predictor.predict(post_text)
 
   /*let reader = new BlogsDataReader()

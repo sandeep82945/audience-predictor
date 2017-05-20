@@ -5,20 +5,22 @@ let countrynames = global.require('countrynames')
 
 class Audience{
   constructor(params={}, original_data =null){
-    this.age_max = params.age_max
+    this.age_max = params.age_max || params.age
     this.age_min = params.age_min 
     this.genders = params.genders || []
 
     this.interests = params.interests || []
-    this.name = params.name || ''
     this.countries = params.countries || []
     this.readParams(params)
     this.original_data = original_data
   }
 
   readParams(params){
+    this.name = params.name || ''
     this.readCoutries(params)
     this.readFlexibleSpecs(params)
+    this.ageGroups = [{age_min:params.age_min, age_max: params.age_min}] 
+    
   }
 
   readCoutries(params){
@@ -53,8 +55,8 @@ class Audience{
   }
 
   matchAge(audience2){
-    if(this.min_age < audience2.min_age) {
-      if(this.max_age > audience2.max_age){
+    if(this.age_min <= audience2.age_min) {
+      if(this.age_max >= audience2.age_max){
         //fully matching
         return 50
       }
@@ -63,7 +65,7 @@ class Audience{
         return 20
       }
     }
-    else if(this.max_age > audience2.max_age){
+    else if(this.age_max >= audience2.age_max){
       // partially matching
       return 20
     } 

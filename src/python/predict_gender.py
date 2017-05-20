@@ -4,7 +4,7 @@
 from read_data import read_sentence	
 from read_data import convert
 
-from categories import age_map
+from categories import gender_map
 
 category = read_sentence()
 
@@ -65,5 +65,5 @@ category = read_sentence()
 
 
 
-print convert([age_map[category]])
+print convert([gender_map[category]])
 
