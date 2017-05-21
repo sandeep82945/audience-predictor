@@ -55,12 +55,12 @@ class Audience{
   }
   readInterests(interests){
     $.each(interests, (index, fb_interests) => {
-      let interest_obj = audience_utils.findinArray(fb_interests, consts.interests,  (fb_interest, interest) =>{
-        return audience_utils.matchString(fb_interest.name, interest.name)
-      })
-      if(interest_obj){
-        this.interests.push(interest_obj)
-      }
+      //let interest_obj = audience_utils.findinArray(fb_interests, consts.interests,  (fb_interest, interest) =>{
+      //return audience_utils.matchString(fb_interest.name, interest.name)
+      //})
+      //if(interest_obj){
+      this.interests.push(fb_interests)
+      //}
     })
   }
 
@@ -90,10 +90,10 @@ class Audience{
   }
   matchGender(audience2){
     if(audience_utils.findinArray({id:0, name:"both"}, this.genders, audience_utils.matchGenderFn))
-      return 20 // predicted is both
+      return 10 // predicted is both
     if(audience_utils.searchArrays(this.genders, audience2.genders),audience_utils.matchGenderFn){
       // Gender match
-      return 30
+      return 20
     } 
     return 0
   }

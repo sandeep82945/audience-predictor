@@ -25,24 +25,18 @@ module.exports = {
       displayName: "40-100"
     }
   ],
-  interests:[
-    {
+  interests:{
+    Beauty:{
       name:"Beauty",
-      id:"Beauty"
+      id:"Beauty",
+      interests:['Cosmetics', "Beauty", "Fashion accessories"]
     },
-    {
+    Photography:{
       name:"Photography",
-      id:"Photography"
-    },
-    {
-      name:"Photography",
-      id:"Photography"
-    },
-    {
-      name:"Cosmetics",
-      id:"Cosmetics"
+      id:"Photography",
+      interests:['Camera', 'Photography', 'Travel']
     }
-  ],
+  },
   facebook: {
     application_id:'615566271976367',
     client_secret:'508f0e61a63298135974ea17d3aa71e4',
@@ -53,6 +47,6 @@ module.exports = {
     0: 'Both',
     1: 'Male',
     2: 'Female' 
-  }  
+  }
 
 }
