@@ -19,9 +19,20 @@ class Audience{
     this.name = params.name || ''
     this.readCoutries(params)
     this.readFlexibleSpecs(params)
+    this.readGenders()
     this.ageGroups = [{age_min:params.age_min, age_max: params.age_max}] 
   }
-
+  readGenders(){
+    let newGenders = []
+    $.each(this.genders, (index, gender) =>{
+      let id = gender.id || gender
+      let name = consts.genders[id]
+      if(name){
+        newGenders.push({name:name, id: id})
+      }
+    })  
+    this.genders = newGenders 
+  }
   readCoutries(params){
     if(params.geo_locations && params.geo_locations.countries){
       let countries = params.geo_locations.countries

@@ -46,7 +46,13 @@ module.exports = {
   facebook: {
     application_id:'615566271976367',
     client_secret:'508f0e61a63298135974ea17d3aa71e4',
-    redirect_url: 'http://localhost:8080/'
+    scopes: "public_profile",
+    redirect_url: 'https://www.facebook.com/connect/login_success.html'
+  },
+  genders:{
+    0: 'Both',
+    1: 'Male',
+    2: 'Female' 
   }  
 
 }

@@ -9,6 +9,42 @@
      <link rel="stylesheet" type="text/css" href="css/audience_predictor.css">
   </head>
   <body>
+  <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '615566271976367',
+      xfbml      : true,
+      version    : 'v2.9'
+    });
+    FB.AppEvents.logPageView();
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+<div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar">dsds</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          
+          <a class="navbar-brand" > <img class = "logo" src="css/Bitlogo.png" >Audience Predictor</a>
+        
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right">
+            
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div>
     <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
     <li><a data-toggle="tab" href="#menu3">Facebook Audience</a></li>
@@ -17,26 +53,30 @@
   <div class="tab-content">
 <!-- Home Tab. content -->
     <div id="home" class="tab-pane fade in active">
-      <h1>Audience Predictor</h1>
    
-    <p>Predicting Audience From Post Text</p>
+    <p>Predict Audience From Post Text</p>
     <p> Facebook Ad Post Text</p>
-    <textarea name="Text1" cols="100" rows="5" id ="post_text" placeholder="Ether the Ad Text"></textarea>
-    <div>
+    <textarea name="Text1" cols="100" rows="5" id ="post_text" placeholder="Enter the Text of your Facebook Advert here"></textarea>
+    <div class = "predict-button-holder">
      <button type="button" class="btn btn-lg btn-primary" id ="predict_audeience">Predict Audience</button>
     </div>
-    <p>Cities </p>
-    <div><p id="demo_cities"></p></div>
-    <p>Countries </p>
-    <div><p id="demo_countries"></p></div>
-    <p>Categories </p>
-    <div><p id="demo_categories"></p></div>
-    <p>Age Group</p>
-    <div><p id="demo_age_groups"></p></div>
-    <p>Gender</p>
-    <div><p id="demo_genders"></p></div>
-     <div>
-      <button type="button" class="btn btn-lg btn-primary" id ="match_audience"> Match Audience</button>
+    <div class="predicted-audience-holder" style="display:none">
+      <h4>Predicted Audience Parameters </h4>
+      <p>Cities </p>
+      <div><p id="demo_cities"></p></div>
+      <p>Countries </p>
+      <div><p id="demo_countries"></p></div>
+      <p>Categories </p>
+      <div><p id="demo_categories"></p></div>
+      <p>Age Group</p>
+      <div><p id="demo_age_groups"></p></div>
+      <p>Gender</p>
+      <div><p id="demo_genders"></p></div>
+    </div>
+    <div class="matching-audience-holder" style="display:none">
+      <div class="match-button-holder">
+        <button type="button" class="btn btn-lg btn-primary" id ="match_audience"> Match Audience</button>
+      </div>
       <div id="matching_audiences"></div>
      </div> 
     </div>
@@ -50,7 +90,7 @@
     </div>
     <div id="menu4" class="tab-pane fade">
       <h3>Settings</h3>
-      <p>TODO</p>
+    </div>
     </div>
   </div>
 </div>

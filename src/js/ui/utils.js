@@ -52,7 +52,7 @@ class Utils {
       audience = audience.audience
     }
     let param_html = this.audienceParamHtml(audience)
-    return `<td>${audience.name}</td><td>${param_html}</td>`
+    return `<td><p><img class="audience-icon" src="css/audience.png">${audience.name}</p></td><td>${param_html}</td>`
   }
 
 

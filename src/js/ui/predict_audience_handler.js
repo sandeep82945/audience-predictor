@@ -35,7 +35,9 @@ module.exports = () =>{
 
   let category_predictor = new CategoryPredictor()
   category_predictor.predict(post_text)
-
+  $('.predicted-audience-holder').show()
+  $('.matching-audience-holder').show()
+  
   // let age_predictor = new AgePredictor()
   // age_predictor.predict(post_text)
 
