@@ -19,8 +19,7 @@ class Audience{
     this.name = params.name || ''
     this.readCoutries(params)
     this.readFlexibleSpecs(params)
-    this.ageGroups = [{age_min:params.age_min, age_max: params.age_min}] 
-    
+    this.ageGroups = [{age_min:params.age_min, age_max: params.age_max}] 
   }
 
   readCoutries(params){
@@ -78,14 +77,16 @@ class Audience{
     }
     return 0
   }
-  matchGenders(audience2){
-    if(audience_utils.searchArrays(this.genders, audience2.genders)){
+  matchGender(audience2){
+    if(audience_utils.findinArray({id:0, name:"both"}, this.genders, audience_utils.matchGenderFn))
+      return 20 // predicted is both
+    if(audience_utils.searchArrays(this.genders, audience2.genders),audience_utils.matchGenderFn){
       // Gender match
-      return 50
+      return 30
     } 
     return 0
   }
-  matchInterests(audience2){
+  matchInterest(audience2){
     if(audience_utils.searchArrays(this.interests, audience2.interests)){
       // interests match
       return 50

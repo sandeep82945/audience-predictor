@@ -27,6 +27,10 @@ class Utils{
   matchCountryFn(country1, country2){
     return country1.code === country2.code
   }
+  
+  matchGenderFn(gender1, gender2){
+    return gender1.code === gender2.code
+  }
 }
 
 module.exports = new Utils()

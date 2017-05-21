@@ -21,7 +21,7 @@ class AudienceMatcher{
     let matchScore = 0
     matchScore += audience1.matchCountry(audience2)
     matchScore += audience1.matchAge(audience2)
-    //matchScore += audience1.matchAge(audience2)
+    matchScore += audience1.matchGender(audience2)
     
     return matchScore
   }
