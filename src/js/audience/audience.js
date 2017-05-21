@@ -59,7 +59,7 @@ class Audience{
       //return audience_utils.matchString(fb_interest.name, interest.name)
       //})
       //if(interest_obj){
-      this.interests.push(fb_interests)
+      this.interests.push(fb_interests.name)
       //}
     })
   }
