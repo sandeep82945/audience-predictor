@@ -1,10 +1,12 @@
 from sklearn.feature_extraction.text import CountVectorizer
 from read_data import read_sentence
 from read_data import convert
-
+import numpy as np
 #for reading file
 import pandas as pd
 sms = pd.read_table('data/pk.tsv', header=None, names=['label', 'message'])
+#Randomising the rows in the file
+sms = sms.reindex(np.random.permutation(sms.index))
 
 from categories import tsv_labels
 labels = tsv_labels['categories']["ids"]
