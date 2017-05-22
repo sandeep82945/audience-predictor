@@ -25,10 +25,10 @@ class Audience{
   readGenders(){
     let newGenders = []
     $.each(this.genders, (index, gender) =>{
-      let id = gender.id || gender
-      let name = consts.genders[id]
+      let code = gender.code || gender
+      let name = consts.genders[code]
       if(name){
-        newGenders.push({name:name, id: id})
+        newGenders.push({name:name, code: code})
       }
     })  
     this.genders = newGenders 
@@ -68,23 +68,23 @@ class Audience{
     if(this.age_min <= audience2.age_min) {
       if(this.age_max >= audience2.age_max){
         //fully matching
-        return 50
+        return 20
       }
       else{
         //partially matching
-        return 20
+        return 10
       }
     }
     else if(this.age_max >= audience2.age_max){
       // partially matching
-      return 20
+      return 10
     } 
     return 0  
   }
   matchCountry(audience2){
     if(audience_utils.searchArrays(this.countries, audience2.countries, audience_utils.matchCountryFn)){
       // country match
-      return 10
+      return 30
     }
     return 0
   }
@@ -101,7 +101,8 @@ class Audience{
     if(audience_utils.searchArrays(this.interests, audience2.interests)){
       // interests match
       return 50
-    } 
+    }
+    return 0 
   }
 
 }

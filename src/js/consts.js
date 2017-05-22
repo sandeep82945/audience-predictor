@@ -35,8 +35,34 @@ module.exports = {
       name:"Photography",
       id:"Photography",
       interests:['Camera', 'Photography', 'Travel']
+    },
+    Electronics:{
+      name:"Photography",
+      id:"Photography",
+      interests:['Camera', 'Photography', 'Travel']
+    },
+    Cars:{
+      name:"Cars",
+      id:"Cars",
+      interests:['Cars', 'Automobiles', 'Super Bikes!']
+    },
+    Cereals:{
+      name:"Cereals",
+      id:"Cereals",
+      interests:['Vegetable', 'Cooking', 'Food']
+    },
+    Mothers:{
+      name:"Mothers",
+      id:"Mothers",
+      interests:['Baby food', 'Baby shower', 'Parenting']
+    },
+    Education:{
+      name:"Education",
+      id:"Education",
+      interests:['Learning', 'University', 'Higher education']
     }
   },
+
   facebook: {
     application_id:'615566271976367',
     client_secret:'508f0e61a63298135974ea17d3aa71e4',

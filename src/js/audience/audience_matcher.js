@@ -6,6 +6,10 @@ class AudienceMatcher{
     this.audiences = audiences || []
   }
 
+  compareAudiences(a1, a2){
+    return a2.score - a1.score; 
+  }
+  
   match(audience2){
     let matched_audience = []
     $.each(this.audiences, (index, audience1) => {
@@ -14,6 +18,7 @@ class AudienceMatcher{
         matched_audience.push({audience: audience1, score: matchScore})
       } 
     })
+    matched_audience.sort(this.compareAudiences)
     return matched_audience
   }
 

@@ -5,7 +5,7 @@ let AudienceMatcher = require('../audience/audience_matcher')
 
   
 let display = (audiences) =>{
-  ui_utils.displayAudiences('#matching_audiences', audiences)
+  ui_utils.displayAudiences('#matching_audiences', audiences, true)
   console.log(audiences)
 }
 

@@ -48,16 +48,21 @@ class Utils {
   }
 
   audienceHtml(audience){
+    let match_score_html = ""
     if(audience.audience){
+      match_score_html = `<td>${audience.score}</td>`
       audience = audience.audience
     }
     let param_html = this.audienceParamHtml(audience)
-    return `<td><p><img class="audience-icon" src="css/audience.png">${audience.name}</p></td><td>${param_html}</td>`
+    return `<td><p><img class="audience-icon" src="css/audience.png">${audience.name}</p></td><td>${param_html}</td>${match_score_html}`
   }
 
 
-  displayAudiences(selector, audiences){
+  displayAudiences(selector, audiences, match =false){
     let headers = ['Audience Name', 'Properties']
+    if(match){
+      headers.push("Match Score")
+    }
     this.displayTable(selector, headers, audiences, this.audienceHtml.bind(this))
   }
 
@@ -74,7 +79,7 @@ class Utils {
   tableHtml(headers, items, rowDisplayFn) {
     let tableHeader = this.tableHeader(headers)
     let tableBody = this.tableBody(items, rowDisplayFn)
-    return `<table>${tableHeader}${tableBody}</table>`
+    return `<table class='audience_table'>${tableHeader}${tableBody}</table>`
   }
 
   displayTable(selector, headers, items, rowDisplayFn){
