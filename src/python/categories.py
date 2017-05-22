@@ -9,14 +9,14 @@ tsv_labels["categories"]= {"ids":{"EDUCATION":8, "JWELLERY":7, "BABY": 6, "CARS"
 age_map = collections.defaultdict(dict)
 
 age_map = {"Cars": {"age_min": 30, "age_max":50},
-					 "Electronics": {"age_min": 20, "age_max":30},
+					 "Electronics": {"age_min": 20, "age_max":40},
 					 "Cereals": {"age_min": 30, "age_max":40},
 					 "Photography": {"age_min": 20, "age_max":40},
 					 "Health": {"age_min": 30, "age_max":50},
 					 "Beauty": {"age_min": 15, "age_max":40},
 					 "Mothers": {"age_min": 30, "age_max":40},
 					 "Jwellery": {"age_min": 20, "age_max":40},
-					 "Education": {"age_min": 30, "age_max":40}
+					 "Education": {"age_min": 20, "age_max":30}
 				}
 
 gender_map = collections.defaultdict(dict)
