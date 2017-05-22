@@ -6,7 +6,8 @@ let predictAudienceHandler = require('./predict_audience_handler')
 let facebookLoginHandler = require('./facebook_login_handler')
 let getAudienceHandler = require('./get_audience_handler')
 let matchAudienceHandler = require('./match_audience_handler')
-
+let writeHandler = require('./write_fb_audience_handler')
+let readHandler = require('./read_fb_audience_handler')
 
 let handlers = {
   click:[{
@@ -52,7 +53,16 @@ let handlers = {
   {
     selector:'#match_audience',
     callback: matchAudienceHandler
+  },
+  {
+    selector:'#write_fb_audience',
+    callback: writeHandler
+  },
+  {
+    selector:'#read_fb_audience',
+    callback: readHandler
   }
+
   
   
   ]

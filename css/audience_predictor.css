@@ -83,3 +83,9 @@ textarea{
  .audience_table{
 	width: 100%;
 }
+#write_fb_audience{
+	margin-bottom: 10px
+}
+#read_fb_audience{
+	margin-bottom: 10px
+}
