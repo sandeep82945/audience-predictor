@@ -1,6 +1,8 @@
 from sklearn.feature_extraction.text import CountVectorizer
 from read_data import read_sentence
 from read_data import convert
+from ap_text_preprocessor import filter_sentence
+
 import numpy as np
 #for reading file
 import pandas as pd
@@ -39,8 +41,9 @@ nb=MultinomialNB()
 nb.fit(X_train_dtm,y_train)
 
 text = read_sentence()
+filtered_text = filter_sentence(text) 
 
-simple_test=[text]
+simple_test=[filtered_text]
 
 simple_test_dtm=vect.transform(simple_test)
 
