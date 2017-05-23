@@ -93,7 +93,7 @@ class Audience{
       return 10 // predicted is both
     if(audience_utils.searchArrays(this.genders, audience2.genders),audience_utils.matchGenderFn){
       // Gender match
-      return 20
+      return 10
     } 
     return 0
   }
