@@ -4,6 +4,7 @@ from sklearn import metrics
 from sklearn.metrics import precision_score
 from sklearn.metrics import recall_score
 import numpy as np
+from normalize_score import normalize, normalize_fs  
 
 #for reading file
 import pandas as pd
@@ -11,6 +12,7 @@ sms = pd.read_table('data/pk.tsv', header=None, names=['label', 'message'])
 
 #Randomising the rows in the file
 sms = sms.reindex(np.random.permutation(sms.index))
+from sklearn.feature_extraction.text import TfidfVectorizer
 
 from categories import tsv_labels
 labels = tsv_labels['categories']["ids"]
@@ -26,11 +28,11 @@ y_train = sms.label_num
 
 X_train, X_test, y_train, y_test = train_test_split(sms.message, sms.label_num,test_size=0.33, random_state=42)
 
-vect = CountVectorizer()
-
+vect = CountVectorizer(ngram_range=(1, 2))
+#vect = TfidfVectorizer(ngram_range=(1, 2))
 vect.fit(X_train)
 X_train_dtm = vect.transform(X_train)
-
+#print X_train_dtm
 from sklearn.naive_bayes import MultinomialNB
 
 nb=MultinomialNB()
@@ -50,18 +52,18 @@ y_pred_class = nb.predict(simple_test_dtm)
 
 #accurcy score
 accuracy=metrics.accuracy_score(y_test, y_pred_class)
-print "acuuracy=",accuracy
+print "acuuracy=",normalize(accuracy)
 precision=precision_score(y_test, y_pred_class, average='macro')
-print "precision=",precision
+#print "precision=",precision
 
 recall=recall_score(y_test, y_pred_class, average='macro') 
-print "recall=",recall
+#print "recall=",recall
 
 F1 = 2 * (precision * recall) / (precision + recall)
 
-print "f-score=",F1
+print "f-score=",normalize_fs(F1)
 
-print metrics.classification_report(y_test, y_pred_class)
+#print metrics.classification_report(y_test, y_pred_class)
 
 
 
