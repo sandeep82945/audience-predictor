@@ -88,7 +88,7 @@ class Audience{
   matchCountry(audience2){
     if(audience_utils.searchArrays(this.countries, audience2.countries, audience_utils.matchCountryFn)){
       // country match
-      return 30
+      return 70
     }
     return 0
   }
