@@ -71,13 +71,17 @@ class Audience{
         return 20
       }
       else{
+        let overlapped_age = Math.min(audience2.age_max, this.age_max) - this.age_min
+        let matchScore = (overlapped_age /(audience2.age_max - audience2.age_min))*20  
         //partially matching
-        return 10
+        return matchScore
       }
     }
     else if(this.age_max >= audience2.age_max){
       // partially matching
-      return 10
+      let overlapped_age = audience2.age_max - Math.max(this.age_min, audience2.age_min)
+      let matchScore = (overlapped_age /(audience2.age_max - audience2.age_min))*20 
+      return Math.round(matchScore) 
     } 
     return 0  
   }
