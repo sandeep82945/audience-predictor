@@ -1,11 +1,13 @@
-const electron = require('electron')
+var electron = require('electron')
 // Module to control application life.
-const app = electron.app
+var app = electron.app
 // Module to create native browser window.
-const BrowserWindow = electron.BrowserWindow
+var BrowserWindow = electron.BrowserWindow
+var FB = require('fb');
 
-const path = require('path')
-const url = require('url')
+var path = require('path')
+var url = require('url')
+var ipc = electron.ipcMain;
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -46,6 +48,38 @@ app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') {
     app.quit()
   }
+})
+
+ipc.on("facebook-button-clicked",function (event, arg) {
+  console.log("called" + arg)
+  var options = {
+    client_id: '615566271976367',
+    scopes: "public_profile&ads_read&adsmanagement",
+    redirect_uri: "https://www.facebook.com/connect/login_success.html"
+  };
+  var authWindow = new BrowserWindow({ width: 450, height: 300, show: false, 'node-integration': false });
+  var facebookAuthURL = "https://www.facebook.com/dialog/oauth?client_id=" + options.client_id + "&redirect_uri=" + options.redirect_uri + "&response_type=token,granted_scopes&scope=" + options.scopes + "&display=popup";
+  authWindow.loadURL(facebookAuthURL);
+  authWindow.show();
+  authWindow.webContents.on('did-get-redirect-request', function (event, oldUrl, newUrl) {
+    var raw_code = /access_token=([^&]*)/.exec(newUrl) || null;
+    access_token = (raw_code && raw_code.length > 1) ? raw_code[1] : null;
+    error = /\?error=(.+)$/.exec(newUrl);
+    if(access_token) {
+      FB.setAccessToken(access_token);
+      //console.log(access_token)
+      //ipc.send('set-access-token', access_token)
+      mainWindow.webContents.executeJavaScript("window.access_token=\"" +  access_token+ "\"");
+      //mainWindow.access_token = access_token
+      FB.api('/me', { fields: ['id', 'name', 'picture.width(800).height(800)'] }, function (res) {
+        //console.log(" Name: " + res.name )
+        // mainWindow.webContents.executeJavaScript("document.getElementById(\"fb-name\").innerHTML = \" Name: " + res.name + "\"");
+        // mainWindow.webContents.executeJavaScript("document.getElementById(\"fb-id\").innerHTML = \" ID: " + res.id + "\"");
+        // mainWindow.webContents.executeJavaScript("document.getElementById(\"fb-dp\").src = \"" + res.picture.data.url + "\"");
+      });
+      authWindow.close();
+    }
+  });
 })
 
 app.on('activate', function () {

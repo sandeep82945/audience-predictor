@@ -89,3 +89,8 @@ textarea{
 #read_fb_audience{
 	margin-bottom: 10px
 }
+
+#fb_audiences{
+  float: right;
+  margin-bottom: 10px
+}

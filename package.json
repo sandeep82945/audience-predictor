@@ -38,8 +38,9 @@
   "devDependencies": {
     "babel-preset-es2015": "",
     "babelify": "",
-    "electron": "^1.4.1",
-    "electron-rebuild": "^1.5.7",
+    "electron-prebuilt": "",
+    "electron-rebuild": "^1.5.11",
+    "fb": "",
     "grunt": "^1.0.1",
     "grunt-babel": "",
     "grunt-browserify": "",

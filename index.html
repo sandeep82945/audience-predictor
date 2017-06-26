@@ -9,24 +9,6 @@
      <link rel="stylesheet" type="text/css" href="css/audience_predictor.css">
   </head>
   <body>
-  <script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '615566271976367',
-      xfbml      : true,
-      version    : 'v2.9'
-    });
-    FB.AppEvents.logPageView();
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "https://connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
 <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -84,7 +66,7 @@
      
     <div id="menu3" class="tab-pane fade">
       <h3></h3>
-<!--       <button type="button" class="btn btn-lg btn-primary" id ="fb_login"> Login with Facebook</button> -->
+      <button type="button" class="btn btn-lg btn-primary" id ="fb_login" > Login with Facebook</button>
       <p></p>
       <button type="button" class="btn btn-lg btn-default" id ="write_fb_audience" disabled> Write Audiences to file</button>
       <div id="demo_audiences"></div>
