@@ -56,7 +56,7 @@ ipc.on("facebook-button-clicked",function (event, arg) {
   console.log("called" + arg)
   var options = {
     client_id: '615566271976367',
-    scopes: "public_profile&ads_read&adsmanagement",
+    scopes: "public_profile&ads_read&ads_management&business_management&read_audience_network_insights&manage_pages",
     redirect_uri: "https://www.facebook.com/connect/login_success.html"
   };
   var authWindow = new BrowserWindow({ width: 450, height: 300, show: false, webPreferences:{ nodeIntegration: false }});
