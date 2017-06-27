@@ -84,8 +84,8 @@ ipc.on("facebook-button-clicked",function (event, arg) {
   });
 })
 
-app.on('activate', function () {
 ipc.on("facebook-logout",function (event, arg) {
+
   var session = mainWindow.webContents.session
   session.clearStorageData(['cookies'], ()=>{
     console.log("done")
@@ -104,6 +104,9 @@ ipc.on("facebook-logout",function (event, arg) {
   //  if (error) console.error(error)
   //})
 })
+
+app.on('activate', function () {
+
 
 
 
