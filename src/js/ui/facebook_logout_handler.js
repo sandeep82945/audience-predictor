@@ -11,6 +11,8 @@ module.exports = () =>{
   $('#fb-user-name').text('')
   $('#fb-user-image').attr('src',  '')
   $('#fb-user-image').hide()
+  $('#fb_login').show()
+  $('#fb_logout').hide()
 
   //let url = getloginurl()
 

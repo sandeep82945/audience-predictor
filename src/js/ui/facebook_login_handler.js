@@ -13,6 +13,8 @@ let setProfileInfo = (info) =>{
   $('#fb-user-name').text(info.name)
   $('#fb-user-image').attr('src',  info.picture.data.url)
   $('#fb-user-image').show()
+  $('#fb_login').hide()
+  $('#fb_logout').show()
 }
 global.setAccessToken = (token) =>{
   global.access_token = token
