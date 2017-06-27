@@ -107,3 +107,24 @@ textarea{
 #fb-user-name{
   padding-left: .8rem;
 }
+#fb_login{
+	float: right;
+  margin: .5rem;
+}
+
+#fb_logout{
+	float: right;
+  margin: .5rem;
+}
+.button-holder{
+  height: 5rem;
+
+}
+#write_fb_audience{
+  float: right;
+  margin: .5rem;
+}
+#read_fb_audience{
+  float: right;
+  margin: .5rem;
+}
