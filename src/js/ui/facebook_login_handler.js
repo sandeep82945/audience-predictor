@@ -1,19 +1,28 @@
 //let consts = require('../consts')
 // var oauth = global.require('oauth-electron-facebook').oauth;
 // var facebook = global.require('oauth-electron-facebook').facebook;
+let FBApi = require('../facebook/fb_api')
+//var FB = require('fb');
+
 let ipc = global.require('electron').ipcRenderer
 // let getloginurl = () =>{
 //   return `https://graph.facebook.com/v2.9/oauth/access_token?grant_type=client_credentials&app_id=${consts.facebook.application_id}&client_id=${consts.facebook.application_id}&redirect_uri=${consts.facebook.redirect_url}`
 // }
+let $ = global.$
+let setProfileInfo = (info) =>{
+  $('#fb-user-name').text(info.name)
+  $('#fb-user-image').attr('src',  info.picture.data.url)
+  $('#fb-user-image').show()
+}
 global.setAccessToken = (token) =>{
   global.access_token = token
   let fbapi = new FBApi(token)
-  FB.api('/me', { fields: ['id', 'name', 'picture.width(800).height(800)'] },  (res)  => {
-    console.log(" Name: " + res.name )
-    // mainWindow.webContents.executeJavaScript("document.getElementById(\"fb-name\").innerHTML = \" Name: " + res.name + "\"");
-    // mainWindow.webContents.executeJavaScript("document.getElementById(\"fb-id\").innerHTML = \" ID: " + res.id + "\"");
-    // mainWindow.webContents.executeJavaScript("document.getElementById(\"fb-dp\").src = \"" + res.picture.data.url + "\"");
-  });
+
+  fbapi.getprofile(setProfileInfo)
+  // mainWindow.webContents.executeJavaScript("document.getElementById(\"fb-name\").innerHTML = \" Name: " + res.name + "\"");
+  // mainWindow.webContents.executeJavaScript("document.getElementById(\"fb-id\").innerHTML = \" ID: " + res.id + "\"");
+  // mainWindow.webContents.executeJavaScript("document.getElementById(\"fb-dp\").src = \"" + res.picture.data.url + "\"");
+  //});
 }
 
 module.exports = () =>{

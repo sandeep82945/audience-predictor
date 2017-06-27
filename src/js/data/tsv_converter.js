@@ -14,22 +14,17 @@ class CSVConverter
     let texts = this.data[group.id]
     $.each(texts, (index, text) => {
       text = this.preprocess(text)
-      this.tsv_data.push({age_group: group.id, text: text})  
+      this.tsv_data.push({age_group: group.id, text: text})
     });
 
   }
-/*
-  preprocess(text){
-    let textProcessor = new TextProcessor(text)
 
-  }
-*/
   convertTsv(data, filename){
     this.tsv_data = []
     this.data = data
     $.each(ageGroups, (index, group) =>{
       this.convertTexts(group)
-    }); 
+    });
 
     let text = tsv.stringify(this.tsv_data)
     fs.writeFile(filename, text, function(err) {

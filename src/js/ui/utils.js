@@ -4,14 +4,12 @@ class Utils {
   repeat(openingTag, elements, closingTag, processFn) {
     let html = ""
     $.each(elements, (index, elem)=>{
-      let opeining_text = (typeof openingTag === "function")?
-                          openingTag(elem) : openingTag
+      let opeining_text = (typeof openingTag === "function")? openingTag(elem) : openingTag
 
-      let closing_text = (typeof closingTag === "function")?
-                                  closingTag(elem) : closingTag
+      let closing_text = (typeof closingTag === "function")?closingTag(elem) : closingTag
 
       let elemText =  (processFn) ? processFn(elem) : elem
-      html = html + opeining_text + elemText + closing_text  
+      html = html + opeining_text + elemText + closing_text
     })
     return html
   }
@@ -20,30 +18,30 @@ class Utils {
   }
 
   audienceParamHtml(audience){
-    
+
     let html =''
-    
+
     let countries_html = this.repeat("<span class=\"label label-warning token-label\">", audience.countries, "</span>",(country) =>{
       return country.name
     })
     html += `<p>Countries: ${countries_html}</p>`
-    
+
     let age_html = this.displayAgeGroup(audience)
     html += `Age Group: <span class="label label-warning token-label">
-    ${age_html}</span>`   
+    ${age_html}</span>`
 
     let interests_html = this.repeat("<span class=\"label label-warning token-label\">", audience.interests, "</span>", (interest) =>{
       return interest
     })
     html += `<p>Interests: <span class="label label-warning token-label">${interests_html}</span></p>`
- 
+
 
     let gender_html = this.repeat("<span class=\"label label-warning token-label\">", audience.genders, "</span>", (gender) =>{
       return gender.name
     })
     html += `<p>Gender: <span class="label label-warning token-label">${gender_html}</span></p>`
- 
-    
+
+
     return html
   }
 
@@ -68,11 +66,11 @@ class Utils {
 
   tableHeader(header_items){
     let inner_html = this.repeat('<th>', header_items, '</th>')
-    return `<theader><tr>${inner_html}</tr></thead>` 
+    return `<theader><tr>${inner_html}</tr></thead>`
   }
 
   tableBody(items, rowDisplayFn){
-    let html = this.repeat('<tbody>', items, '</tbody>', rowDisplayFn) 
+    let html = this.repeat('<tbody>', items, '</tbody>', rowDisplayFn)
     return html
   }
 

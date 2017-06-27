@@ -13,7 +13,7 @@ body{
 	overflow-y: scroll;
 }
 #read_files_data_display{
-	
+
 }
 .post_text{
 		max-height: 25rem;
@@ -93,4 +93,17 @@ textarea{
 #fb_audiences{
   float: right;
   margin-bottom: 10px
+}
+#fb-user-image{
+  height: 2.6rem;
+  width: 2.6rem;
+}
+.navbar-brand{
+  padding-top: 1.0rem!important;
+}
+.navbar-form{
+  padding-top: .7rem;
+}
+#fb-user-name{
+  padding-left: .8rem;
 }

@@ -1,5 +1,4 @@
 let FBApi = require('../facebook/fb_api')
-var FB = require('fb');
 
 let fs = global.require('fs')
 let token_file = '../server/token.txt'
@@ -7,16 +6,6 @@ let token_file = '../server/token.txt'
 let Audience = require('../audience/audience')
 let ui_utils = require('./utils')
 
-global.setAccessToken = (token) =>{
-  global.access_token = token
-  let fbapi = new FBApi(token)
-  FB.api('/me', { fields: ['id', 'name', 'picture.width(800).height(800)'] }, function (res) {
-    //console.log(" Name: " + res.name )
-    // mainWindow.webContents.executeJavaScript("document.getElementById(\"fb-name\").innerHTML = \" Name: " + res.name + "\"");
-    // mainWindow.webContents.executeJavaScript("document.getElementById(\"fb-id\").innerHTML = \" ID: " + res.id + "\"");
-    // mainWindow.webContents.executeJavaScript("document.getElementById(\"fb-dp\").src = \"" + res.picture.data.url + "\"");
-  });
-}
 
 let showAudiences = (audiences) =>{
   //let html = `<code>  ${JSON.stringify(audiences)}</code>`
