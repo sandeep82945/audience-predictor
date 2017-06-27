@@ -2,6 +2,8 @@ var electron = require('electron')
 // Module to control application life.
 var app = electron.app
 // Module to create native browser window.
+app.commandLine.appendSwitch(' --enable-file-cookies', true)
+
 var BrowserWindow = electron.BrowserWindow
 var FB = require('fb');
 
@@ -83,6 +85,28 @@ ipc.on("facebook-button-clicked",function (event, arg) {
 })
 
 app.on('activate', function () {
+ipc.on("facebook-logout",function (event, arg) {
+  var session = mainWindow.webContents.session
+  session.clearStorageData(['cookies'], ()=>{
+    console.log("done")
+  })
+  /*console.log("called" + arg)
+  //const ses = session.defaultSession
+  const ses = session.fromPartition('persist:name')
+  ses.clearCache(()=>{
+    console.log("done")
+  })*/
+  /*console.log(ses.clearStorageData(['cookies'], ()=>{
+    ses.cookies= []
+  }))*/
+  ///const cookie = {url: 'http://www.github.com', name: 'dummy_name', value: 'dummy'}
+  //session.defaultSession.cookies.set(cookie, (error) => {
+  //  if (error) console.error(error)
+  //})
+})
+
+
+
   // On OS X it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
   if (mainWindow === null) {

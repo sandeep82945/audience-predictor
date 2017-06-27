@@ -8,6 +8,7 @@ let getAudienceHandler = require('./get_audience_handler')
 let matchAudienceHandler = require('./match_audience_handler')
 let writeHandler = require('./write_fb_audience_handler')
 let readHandler = require('./read_fb_audience_handler')
+let logoutFB = require('./facebook_logout_handler')
 
 let handlers = {
   click:[{
@@ -61,10 +62,15 @@ let handlers = {
   {
     selector:'#read_fb_audience',
     callback: readHandler
-  }
+  },
+  {
+    selector:'#fb_logout',
+    callback: logoutFB
+  },
 
-  
-  
+
+
+
   ]
 }
 module.exports = handlers
