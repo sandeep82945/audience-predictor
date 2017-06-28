@@ -74,7 +74,7 @@ class Audience{
         let overlapped_age = Math.min(audience2.age_max, this.age_max) - this.age_min
         let matchScore = (overlapped_age /(audience2.age_max - audience2.age_min))*20
         //partially matching
-        return matchScore
+        return Math.round(matchScore)
       }
     }
     else if(this.age_max >= audience2.age_max){
@@ -95,7 +95,7 @@ class Audience{
   matchGender(audience2){
     if(audience_utils.findinArray({id:0, name:"both"}, this.genders, audience_utils.matchGenderFn))
       return 10 // predicted is both
-    if(audience_utils.searchArrays(this.genders, audience2.genders),audience_utils.matchGenderFn){
+    if(audience_utils.searchArrays(this.genders, audience2.genders, audience_utils.matchGenderFn)){
       // Gender match
       return 10
     }

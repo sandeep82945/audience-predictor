@@ -76,7 +76,7 @@ ipc.on("facebook-button-clicked",function (event, arg) {
       //ipc.send('set-access-token', access_token)
       mainWindow.webContents.executeJavaScript("window.setAccessToken(\"" +  access_token+ "\");");
       //mainWindow.access_token = access_token
-      FB.api('/me', { fields: ['id', 'name', 'picture.width(800).height(800)'] }, function (res) {
+      //FB.api('/me', { fields: ['id', 'name', 'picture.width(800).height(800)'] }, function (res) {
         //console.log(" Name: " + res.name )
         // mainWindow.webContents.executeJavaScript("document.getElementById(\"fb-name\").innerHTML = \" Name: " + res.name + "\"");
         // mainWindow.webContents.executeJavaScript("document.getElementById(\"fb-id\").innerHTML = \" ID: " + res.id + "\"");
