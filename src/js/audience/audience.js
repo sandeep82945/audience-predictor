@@ -6,7 +6,7 @@ let countrynames = global.require('countrynames')
 class Audience{
   constructor(params={}, original_data =null){
     this.age_max = params.age_max || params.age
-    this.age_min = params.age_min 
+    this.age_min = params.age_min
     this.genders = params.genders || []
 
     this.interests = params.interests || []
@@ -20,7 +20,7 @@ class Audience{
     this.readCoutries(params)
     this.readFlexibleSpecs(params)
     this.readGenders()
-    this.ageGroups = [{age_min:params.age_min, age_max: params.age_max}] 
+    this.ageGroups = [{age_min:params.age_min, age_max: params.age_max}]
   }
   readGenders(){
     let newGenders = []
@@ -30,8 +30,8 @@ class Audience{
       if(name){
         newGenders.push({name:name, code: code})
       }
-    })  
-    this.genders = newGenders 
+    })
+    this.genders = newGenders
   }
   readCoutries(params){
     if(params.geo_locations && params.geo_locations.countries){
@@ -72,7 +72,7 @@ class Audience{
       }
       else{
         let overlapped_age = Math.min(audience2.age_max, this.age_max) - this.age_min
-        let matchScore = (overlapped_age /(audience2.age_max - audience2.age_min))*20  
+        let matchScore = (overlapped_age /(audience2.age_max - audience2.age_min))*20
         //partially matching
         return matchScore
       }
@@ -80,15 +80,15 @@ class Audience{
     else if(this.age_max >= audience2.age_max){
       // partially matching
       let overlapped_age = audience2.age_max - Math.max(this.age_min, audience2.age_min)
-      let matchScore = (overlapped_age /(audience2.age_max - audience2.age_min))*20 
-      return Math.round(matchScore) 
-    } 
-    return 0  
+      let matchScore = (overlapped_age /(audience2.age_max - audience2.age_min))*20
+      return Math.round(matchScore)
+    }
+    return 0
   }
   matchCountry(audience2){
     if(audience_utils.searchArrays(this.countries, audience2.countries, audience_utils.matchCountryFn)){
       // country match
-      return 70
+      return 30
     }
     return 0
   }
@@ -98,15 +98,15 @@ class Audience{
     if(audience_utils.searchArrays(this.genders, audience2.genders),audience_utils.matchGenderFn){
       // Gender match
       return 10
-    } 
+    }
     return 0
   }
   matchInterest(audience2){
     if(audience_utils.searchArrays(this.interests, audience2.interests)){
       // interests match
-      return 50
+      return 90
     }
-    return 0 
+    return 0
   }
 
 }

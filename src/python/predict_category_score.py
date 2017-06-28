@@ -7,6 +7,7 @@ from sklearn.model_selection import train_test_split
 from sklearn import metrics
 from sklearn.metrics import precision_score
 from sklearn.metrics import recall_score
+from normalize_score import normalize_naive
 
 #for reading file
 import pandas as pd
@@ -52,6 +53,7 @@ y_pred_class = knn.predict(X_test_dtm)
 
 #accurcy score
 accuracy=metrics.accuracy_score(y_test, y_pred_class)
+accuracy = normalize_naive(accuracy)
 print "acuuracy=",accuracy
 precision=precision_score(y_test, y_pred_class, average='macro')
 print "precision=",precision
